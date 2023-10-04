@@ -1,0 +1,19 @@
+{% extends "GestorTareas/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <h1>Tareas</h1>
+    <p>Esta es su seccion de Tareas!</p>
+
+    <form action = "" method = "POST"> {% csrf_token %}
+
+        <table>
+        {{ Formulario.as_table }}
+        </table>
+    
+        <input type="submit" value="Guardar tarea">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "GestorTareas/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <h1>Usuarios</h1>
+    <p>Esta es su seccion de Usuario!</p>
+    <form action = "" method = "POST"> {% csrf_token %}
+
+        <table>
+        {{ Formulario.as_table }}
+        </table>
+    
+        <input type="submit" value="Guardar usuario">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "GestorTareas/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <h1>Busqueda de Tareas</h1>
+    <p>Esta es su seccion de Busqueda de Tareas!</p>
+
+    
+    <ul>
+        {% if tareas %}
+            {% for tarea in tareas %}
+                <li>Nombre de Tarea: {{ tarea.name }}</li>
+                <li>Fecha de Entrega: {{ tarea.deliverydate }}</li>
+                <li>
+                    {% if tarea.status == True %}
+                        Estado: Completada
+                    {% elif tarea.status == False %}
+                        Estado: No Completada
+                    {% else %}
+                        Estado: Pendiente
+                    {% endif %}
+                </li>
+                {% for descripcion in descripciones %}
+                    {% if descripcion.task == tarea %}
+                        <li>Descripcion: {{ descripcion.description }}</li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% else %}
+            <li>No hay tareas con ese nombre</li>
+        {% endif %}
+    </ul>
+
+
+{% endblock %}
